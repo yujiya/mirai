@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8">  
+    <title></title>  
+  	<link rel="stylesheet" type="text/css" href="css/component.css"/>
+    <style type="text/css">  
+		.center{
+			margin: 0 auto;
+			width: 800px;
+		}
+    </style>  
+</head>  
+<body>
+<div class="center">
+	<div class="charts" id="painting0">
+		<h3 title="IP 失败与成功比">IP: Failure vs Success</h3><hr />
+		<div class="scan_pie" style="width:600px;height:400px ;margin: 50px 100px;"> </div>
+		<h3 title="IP世界分布图">IP Map of World</h3><hr />
+		<div class="btlist">
+			<div class="spanbt-s" title="选择危险的"></div>
+			<div class="spanbt-f" title="选择暂时安全的"></div>
+			<div class="spanbt-a" title="所有已经扫描的"></div>
+		</div>
+		<div class="scan_map" style="width:100%;height: 550px; margin: 20px 0;"></div>
+	</div>
+</div>
+<script src="js/vendor/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="map/js/bigworld.js" type="text/javascript" charset="utf-8"></script>
+<script src="map/js/china.js" type="text/javascript" charset="utf-8"></script>
+<script src="map/js/jiangsu.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/charts.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	var message={
+		startip:"180.32.23.23",
+	}
+	var drawArg=startdraw(0,message);
+//	var drawArg2=startdraw(1,message);
+//	drawArg.selectpar=2;
+//	drawArg.wakeup();
+//	startdraw(1,message);
+</script>
+</body>
+</html>

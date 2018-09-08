@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Mirai密码爆破</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--代办
+    	type 用于选择使用文件;
+    -->
+	<!-- Loading Bootstrap -->
+	<link rel="stylesheet" href="./css/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/global.css">
+	<!-- Loading Flat UI -->
+	<link rel="stylesheet" href="./css/flat-ui.min.css">
+	<link rel="stylesheet" href="./css/history_page.css">
+	<link rel="stylesheet" href="./css/control_page.css">
+	<link rel="stylesheet" href="./css/scan_page.css">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="./css/select2.min.css" />
+	<link rel="stylesheet" href="./css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<!--<link rel="stylesheet" type="text/css" href="css/default.css">-->
+	<!--<link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />-->
+	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+	<script src="./js/vendor/jquery.min.js"></script>
+	<script src="./js/bootstrap-datepicker.min.js"></script>
+	<!--<script src="js/fileinput.js" type="text/javascript"></script>-->
+	<!--简体中文-->
+	<!--<script src="js/locales/zh.js" type="text/javascript"></script>-->
+	<!--繁体中文-->
+	<!--<script src="js/locales/zh-TW.js" type="text/javascript"></script>-->
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+	<!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!--logo-->
+	<div id="header" style="background-color: #f3f4f5;"> 
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="30%" align="left" style="padding-left:28px;">
+					<img src="img/logo.png" title="高性能计算与大数据处理研究所"/>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<nav class=" navbar-inverse" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+				<span class="sr-only">Toggle navigation</span>
+			</button>
+			<div style="padding:0 9px 0 8px;">
+				<a class="navbar-brand" href="#" style="">泛智能设备</a>
+			</div>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-collapse-01">
+			<ul class="nav navbar-nav">
+				<!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文件<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="daoru">导入</a></li>
+              <li><a href="#" id="daochu">导出</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#" id="fenxi">分析报告</a></li>
+            </ul>
+          </li>-->
+				<li class="mydivider"></li>
+				<li class="_navbar-control active" data-target="scan-page"><a href="#fakelink">扫描</a></li>
+				<li class="_navbar-control" data-target="history-page"><a href="#fakelink">历史记录</a></li>
+				<!--<li class="_navbar-control" data-target="control-page" id="control"><a href="#fakelink">控制</a></li>-->
+<!--				<li class="_navbar-control" data-target="help-page"><a href="#fakelink">帮助</a></li>-->
+				<li class="mydivider"></li>
+				<li><a href="#" id="daoru">导入密码本</a></li>
+				<li><a href="#" id="fenxi">图表分析</a></li>
+				<li class="mydivider"></li>
+				<li class="_navbar-control" data-target="help-page"><a href="#fakelink">帮助</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</nav>
+	<!-- /navbar -->
+	<!-- /.container -->
+	<div class="mainbody">
+		<section class="scan-page active">
+
+			<div class="navbar-left">
+				<li>
+					<div class="navbar-label">扫描目标设置：</div>
+				</li>
+				<li><select id="scan_target" class="form-control" style="width: 171px;">
+						<option value="0">端口号(全部)</option>
+						<option value="1">端口号(80)</option>
+						<option value="2">端口号(23)</option>
+						<option value="3">端口号(8080)</option>
+					</select></li>
+				<li><div style="width:171px;margin-bottom: 20px;padding-left: 0px;"><input id="scan_ip" type="text" value="10.10.20.25/30" class="form-control" /></div></li>
+				<li>
+					<button class="btn btn-primary" style="width: 80px;" id="startScan">
+						开始扫描</button>
+					<button class="btn btn-danger my-btn-stop" id="stopScan">
+						停止</button>
+				</li>
+				<li style="font-size: 20px; font-weight: 300;">例如:
+					<ul style="text-indent: 0px; font-size: 15px; padding: 0 10px;">
+						<li>180.209.64.38/30 (ip/掩码)</li>
+					</ul>
+					<!--<p ><input class ="mybutton" type="file">配置密码本</input><button class ="mybutton">清除</button></p>-->
+					<!--<div id="dropboxcomponent" class="little_dropbox_shower">
+          			<div class="container kv-main" style="width:220px;">
+                    <form enctype="multipart/form-data">
+                        <input id="file-0a" class="file" type="file" multiple data-min-file-count="1">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </form>
+        				</div>
+          		</div>-->
+				</li>
+			</div>
+			<div class="body-right">
+				<div class="content-box">
+					<div class="content-title">
+						<h5>扫描结果：</h5>
+					</div>
+					<div class="table-wrap">
+						<div class="table-scroll">
+							<div class="thead">
+								<div class="item">
+									<span class="span-0" style="position: relative;"><select
+										class="select_self" id="resultSel0">
+											<option value="0">扫描结果(全部)</option>
+											<option value="1">扫描结果(成功)</option>
+											<option value="2">扫描结果(失败)</option>
+									</select> </span> <span class="span-1">品牌</span> <span class="span-2"><select
+										class="select_self" id="IPSel0">
+											<option value="0">IP(全部)</option>
+											<option value="1">IP(80)</option>
+											<option value="2">IP(23)</option>
+											<option value="3">IP(8080)</option>
+									</select> </span> <span class="span-3">用户名</span> <span class="span-4">密码</span>
+									<span class="span-5">日期</span> <span class="span-6"><select
+										class="select_self" id="controlSel0">
+											<option value="0">控制(全部)</option>
+											<option value="1">控制(可控制)</option>
+											<option value="2">控制(不可控制)</option>
+									</select> </span> <span class="span-7">地址</span><span class="span-9">类型</span><span class="span-8">操作</span>
+								</div>
+							</div>
+							<div class="tbody">
+								<div class="item fail controlless port80">
+									<span class="span-0"><i style="color: #F51143"
+										class="glyphicon glyphicon-remove"></i>&nbsp;失败</span><span class="span-1">[Apache/2.4.6 (CentOS) PHP/5.4.16]</span>
+									<span
+									 class="span-2">180.209.64.38:80</span><span class="span-3">null</span><span class="span-4">null</span><span class="span-5">2017-05-10
+										21:03:18</span><span class="span-6">不可控制</span><span class="span-7">江苏省
+										南京市</span>
+										<!--新增-->
+										<span>类型</span>
+										<span class="span-8">
+											<i title = "查看" class="controlbutton_see glyphicon glyphicon-eye-open" aria-hidden="true"></i>
+											<i title = "控制" class="controlbutton_no  glyphicon glyphicon glyphicon-globe"aria-hidden="true"></i>
+											<i title = "上传病毒" class="controlbutton_no  glyphicon glyphicon glyphicon-screenshot"aria-hidden="true" ></i>
+										</span>
+								</div>
+
+							</div>
+							<div class="spinner">
+								<div class="bounce1"></div>
+								<div class="bounce2"></div>
+								<div class="bounce3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">版权所有 © 南京邮电大学 高性能计算与大数据处理研究所 </div>
+		</section>
+		<section class="history-page ">
+			<div class="navbar-left">
+				<li>
+					<div class="navbar-label">时间节点：</div>
+				</li>
+				<li>
+					<div class="input-daterange input-group" id="datepicker" data-ng-form="yyyy-mm-dd">
+						<input type="text" class="form-control" name="start" /> <span class="input-group-addon">to</span> <input type="text"
+						 class="form-control" name="end" />
+					</div>
+				</li>
+				<li>
+					<div class="navbar-label">查询条件：</div>
+				</li>
+				<li><input type="text" placeholder="请输入IP地址" class="form-control" name="ip" /></li>
+				<li><input type="text" placeholder="*/80/23" class="form-control" name="port" /></li>
+				<!--<li>
+            <input type="text" placeholder="请输入类型" class="form-control" />
+          </li>-->
+				<li>
+					<button class="btn btn-primary btn-wide" id="historybt">
+						查询记录</button>
+				</li>
+
+				<li><a class="btn btn-wide btn-default" id="daochu"> 导出记录
+				</a></li>
+			</div>
+			<div class="body-right">
+				<div class="content-box">
+					<div class="content-title">
+						<h5>扫描结果：</h5>
+					</div>
+					<div class="table-wrap">
+						<div class="table-scroll">
+							<div class="thead">
+								<div class="item">
+									<span class="span-0" style="position: relative;"><select
+										class="select_self" id="resultSel1">
+											<option value="0">扫描结果(全部)</option>
+											<option value="1">扫描结果(成功)</option>
+											<option value="2">扫描结果(失败)</option>
+									</select> </span> <span class="span-1">品牌</span> <span class="span-2"><select
+										class="select_self" id="IPSel1">
+											<option value="0">IP(全部)</option>
+											<option value="1">IP(80)</option>
+											<option value="2">IP(23)</option>
+									</select> </span> <span class="span-3">用户名</span> <span class="span-4">密码</span>
+									<span class="span-5">日期</span> <span class="span-6"><select
+										class="select_self" id="controlSel1">
+											<option value="0">控制(全部)</option>
+											<option value="1">控制(可控制)</option>
+											<option value="2">控制(不可控制)</option>
+									</select> </span> <span class="span-7">地址</span> <span class="span-8">操作</span>
+								</div>
+							</div>
+							<div class="tbody">
+								<!--           <div class="item">
+                         <span class="span-0">192.168.168.168</span>
+                         <span class="span-1">33</span>
+                         <span class="span-2">leo</span>
+                         <span class="span-3">mster</span>
+                         <span class="span-4">六神</span>
+                         <span class="span-5">2017-3-21</span>
+                         <span class="span-6">success</span>
+                         <span class="span-7" title="南京邮电大学兰苑7栋307">南京邮电大学兰苑7栋307</span>
+                         <span class="span-8"><i class="controlbutton_see glyphicon glyphicon-eye-open" aria-hidden="true"></i><i class="controlbutton_yes control  glyphicon glyphicon glyphicon-globe" aria-hidden="true"></i></span>
+                     </div> -->
+							</div>
+							<div class="spinner">
+								<div class="bounce1"></div>
+								<div class="bounce2"></div>
+								<div class="bounce3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">版权所有 © 南京邮电大学 高性能计算与大数据处理研究所 </div>
+		</section>
+		<section class="help-page">功能说明：该软件通过扫描 物联网设备的80端口和23端口来进行爆破获取相应的控制权并进行病毒的上传，当80端口爆破成功时
+		可进行web界面的登录；当23端口爆破成功时，可进行webshell的登录并通过内置命令上传病毒，进行可视化的攻击。
+		<div class="footer">版权所有 © 南京邮电大学 高性能计算与大数据处理研究所 </div>
+		</section>
+	</div>
+	<div id="background"></div>
+	<div id="enterface_container">
+		<div id="models">
+			<div class="enterface">
+				<div class="windowtop">
+					<span class="topmessage">who??</span> <span class="btmessage">关闭</span>
+					<div class="closebutton" title="关闭"></div>
+				</div>
+				<div class="content"></div>
+			</div>
+			<div id="daochuModel">
+				<h3>导出的数据预览:</h3>
+				<div id="daochuContent"></div>
+			</div>
+			<div class="charts" id="painting">
+				<h3 title="IP 失败与成功比">IP: 失败与成功比</h3>
+				<hr />
+				<div class="scan_pie" style="width: 600px; height: 400px; margin: 50px 100px;"></div>
+				<h3 title="IP世界分布图">IP世界分布图</h3>
+				<hr />
+				<div class="btlist">
+					<div class="spanbt-s" title="选择危险的"></div>
+					<div class="spanbt-f" title="选择暂时安全的"></div>
+					<div class="spanbt-a" title="所有已经扫描的"></div>
+				</div>
+
+				<div class="scan_map" style="width: 100%; height: 550px; margin: 20px 0;"></div>
+			</div>
+			<div id="item-info">
+				<table>
+					<thead>
+						<tr>
+							<th>属性</th>
+							<th>值</th>
+						</tr>
+					</thead>
+					<tr>
+						<td><span class="infolabel">扫描结果</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+					<tr>
+						<td><span class="infolabel">品牌</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+					<tr>
+						<td><span class="infolabel">IP地址</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+					<tr>
+						<td><span class="infolabel">用户名</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+					<tr>
+						<td><span class="infolabel">密码</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+					<tr>
+						<td><span class="infolabel">扫描类型</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+					<tr>
+						<td><span class="infolabel">控制状态</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+					<tr>
+						<td><span class="infolabel">地址</span>:</td>
+						<td><span class="info-value"></span></td>
+					</tr>
+				</table>
+			</div>
+			<div id="keysviewModel">
+				<div class="keysview">
+					<div class="search" style="width: 300px; height: 30px; position: relative; left: 200px; top: 45px;">
+						<input type="text" id="whatpin">
+						<button id="searchbt">搜索品牌</button>
+					</div>
+					<h4 class="lighttext">匹配结果:</h4>
+					<div class="item-table">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>用户名</th>
+									<th>密码</th>
+									<th>品牌</th>
+								</tr>
+							</thead>
+							<tbody id="resultlist">
+								<tr>
+									<td>...</td>
+									<td>...</td>
+									<td>...</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="butlist">
+						<!--<input class="selectfile" type="file"  accept="text/plain"></input>-->
+						<button id="savekeys">上传</button>
+						<button id="resettxt">清除</button>
+						<button id="changesee">换视图</button>
+						<button id="saveedit" style="display: none" onclick="ClickFunc.saveEdit()">save edit</button>
+					</div>
+					<h4 class="lighttext">所有密令:</h4>
+					<div class="mmm item-table"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="map/js/bigworld.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/vendor/video.js"></script>
+	<script src="./js/flat-ui.min.js"></script>
+
+	<!--user js-->
+	<script src="js/component.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/control_page.js"></script>
+	<script src="./js/scan_page.js"></script>
+	<script src="js/charts.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/history_page.js"></script>
+	<script src="js/keys.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/select2.min.js"></script>
+	<script src="./js/global.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+$mygray:#e6e6dc;
+$hovergray:#16a085;
+$alizarin:#E74C3C;
+$sunflower:#F1C40F;
+$darkemerland:#27AE60;
+$turquoise:#1ABC9C;
+@mixin setcontent($el){
+    &:before{
+        content:$el;
+        font-family: "microsoft yahei";
+    }
+}
+@mixin perfectshadow{
+    border: none;
+    background: #eee;
+    box-shadow: 2px 2px 12px gray;
+}
+@mixin textcenter{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+@mixin seticon($el){
+    &:before{
+        content:$el;
+        font-family: "Glyphicons Halflings";
+    }
+}
+.XYcenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Ycenter{
+    display: flex;
+    /*text-align: center;*/
+    align-items: center;
+    flex-direction: column;
+}
+.Xcenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+#models{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+.error_message{
+    color: red;
+    background: white;
+}
+.normal_message{
+    background: white;
+}
+.success_message{
+    color: green;
+    background: white;
+}
+#foot_message{
+    $height:70px;
+    $width:500px;
+    position: fixed;
+    z-index: 1000;
+    bottom: 20px;
+    right: 100px;
+    visibility: hidden;
+    /*display: none;*/
+    width: $width;
+    height: $height;
+    opacity: 0;
+    transform: scale(0.95) translate(4px,8px);
+    font-size: 20px;
+    transition: opacity .3s linear,transform .3s linear;
+    @include perfectshadow;
+    &.success_message{
+        .micon{
+            color:white;
+            background: $darkemerland;
+            @include seticon('\e013');
+        }
+        color: $darkemerland;
+        background: white;
+    }
+    &.error_message{
+        .micon{
+            color:white;
+            background: $alizarin;
+            font-weight: bold;
+            @include setcontent('!');
+        }
+        color: $alizarin;
+        background: white;
+    }
+    &.normal_message{
+        .micon{
+            color: white;
+            background: $turquoise;
+            @include seticon('\e023');
+        }
+        background: white;
+    }
+    >*{
+        text-align: center;
+        display: inline-block;
+        position: absolute;
+    }
+    .micon{
+        font-size: $height/1.5;
+        height: $height;
+        width: $height;
+        line-height: $height;
+        font-family: courier;
+    }
+    #foot_content{
+        height: $height;
+        width: $width - $height;
+        left: $height;
+        @include textcenter;
+    }
+    #lostbar{
+        position: absolute;
+        top: $height;
+        height: 2px;
+        background-color: gray;
+        width: 100%;
+        opacity: 1;
+        transition: all 2.3s;
+    }
+}
+.closebutton{
+    box-sizing: border-box;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    float: right;
+    background: lightgray;
+    transition: background-color 0.75s;
+    border-radius:50% ;
+    border: 1px solid darkgray;
+    cursor: pointer;
+    &.oneline{
+        position: absolute;
+        z-index: 1;
+        top: 0px;
+        left: 0px;
+        display: block;
+        width:2px;
+        height:12px;
+        content: "";
+        background: white;
+        opacity: 0;
+        transition: all .5s;
+    }
+    &::before{
+        @extend .oneline;
+        transform: translate(7px,0) rotate(-45deg);
+    }
+    &::after{
+        @extend .oneline;
+        transform: translate(10px,-1px) rotate(45deg);
+    }
+    &:hover{
+        background: red;
+        &::before{
+            opacity: 1;
+            transform:translate(8px,3px) rotate(-45deg);
+        }
+        &::after{
+            opacity: 1;
+            transform:translate(8px,3px) rotate(45deg);
+        }
+    }
+}
+.little_dropbox_shower{
+    width:100%;
+    max-width: 400px ;
+    max-height: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    table{
+        width: 100%;
+        background: white;
+        tr:hover{
+            background: #eee;  
+        }
+        tr{
+            border-bottom: 1px solid black;
+        }
+        td,th{
+            text-align: left;
+            padding: 10px;
+        }
+    }
+}
+.little-bt{
+    display: table-cell;
+    vertical-align: center;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+    color:gray;
+    border: 1px solid gray;
+    padding: 0px;
+    &:hover{
+        border: 1px solid $hovergray;
+        color: $hovergray;
+    }
+}
+.wrapper{
+    height: 0;
+    position: relative;
+    .btlist{
+        position: absolute;
+    }
+}
+.mydivider{
+    
+}
+.btlist>div{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius:100%;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right:80px;
+    font-size: 15px;
+    font-weight:200; 
+    &::before{
+        display: inline-block;
+        position: relative;
+        top: 20px;
+        width: auto;
+        height: auto;
+        z-index: 1;
+    }
+    &.spanbt{
+        &-s{
+            &::before{
+                content: "Dangerous";
+            }
+            background: #ff5a43;
+        }
+        &-f{
+            &::before{
+                content: "MaybeSafe";
+            }
+            background: #50c72b;
+        }
+        &-a{
+            &::before{
+                content: "AllofScanner";
+            }
+            background: #ffd700;
+        }
+    }
+}
+
+.item-table{
+    $tablehead:#eee;
+    $hovercolor:#ecf6fd;
+    border-radius: 5px;
+    width: 400px;
+    font-size: 15px;
+    overflow: hidden;
+    border:1px solid $tablehead;
+    box-shadow: 1px 1px 8px -1px #eee;
+    table{
+        width:100%;
+        border-collapse: collapse;
+    }
+    thead th{
+        font-weight: 500;
+        background:$tablehead;
+        border-right:1px solid #e0e0e0;
+        color: rgba(0,0,0,1);
+    }
+    tbody td{
+        color:rgba(0,0,0,0.7);
+    }
+    th , td {
+        padding: 0 10px;
+        height: 40px;
+        vertical-align: center;
+        border-right:1px solid $tablehead;
+        border-bottom:1px solid $tablehead;
+    }
+    link{
+        color:$hovercolor;
+    }
+    tbody tr:hover{
+        background: $hovercolor;
+    }
+}
+.search input{
+    &:focus{
+        outline: none;
+        border:1px solid #48c8e3;
+    }
+    padding:0 10px;
+    border:1px solid gray;
+    border-radius:5px ;
+}
+.supersearch{
+    width: 8em;
+    height: 30px;
+}
+.placeholder{
+    color: #EEEEEE;
+    margin: 20px;
+}
+.mydivider{
+    width: 3px;
+    height: 27px;
+    margin: 13px 3px;
+    overflow: hidden;
+    border-radius : 1.5px;
+    background-color: rgba(202,206,209,.5);
+}

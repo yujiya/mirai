@@ -1,0 +1,72 @@
+666666/666666	大华Dahua
+888888/888888	大华Dahua
+admin/(none)	福斯康姆Foscam/March Networks/联卫Unifore/Wodsee/海视云威Starvedia
+admin/1111	施乐Xerox
+admin/1111111	三星Samsung（旧）
+admin/1234	霍尼韦尔Honeywell/Sentry360/DRS
+Admin/1234	DVTel/彩富电子DynaColor
+admin/12345	海康威视Hikvision/Northern
+admin/123456	建腾创达ACTi
+Admin/123456	建腾创达ACTi
+admin/4321	三星Samsung（新）/Pixord
+admin/54321	
+admin/7ujMko0admin	大华Dahua
+admin/9999	美国动力American Dynamics
+admin/admin	威智伦Avigilon/Basler/金砖通讯Brickcom/Digital Watchdog/FLIR(大华模块)/奇偶GeoVision/潮流网络Grandstream/Intellio/派尔高Pelco Sarix/三洋Sanyo/Stardot/索尼Sony/趋势网络Trendnet
+admin/admin1234
+admin/admin12345 海康威视
+admin/fliradmin	FLIR
+admin/jvc	杰伟世JVC
+admin/meinsm	Mobotix
+admin/pass	
+admin/password	Scallop
+admin/smcadmin	SMC router
+admin/wbox123	W-Box
+admin1/password	
+administrator/1234	
+Administrator/admin	
+guest/12345	
+guest/12345	
+guest/guest	
+mother/fucker	
+root/(none)	晶睿通讯Vivotek
+root/00000000	松下Panasonic打印机
+root/1111	
+root/1234	
+root/12345	
+root/123456	
+root/54321	Packet8 VOIP Phone
+root/666666	大华Dahua
+root/888888	大华Dahua
+root/7ujMko0admin	大华Dahua
+root/7ujMko0vizxv	大华Dahua
+root/888888	
+root/admin	IPX-DDK
+root/Admin	IPX-DDK
+root/anko	ANKO Products DVR
+root/camera	佳能Canon
+root/default	
+root/dreambox	Dreambox TV
+root/hi3518	海康威视Hikvision
+root/ikwb	东芝Toshiba
+root/juantech	九光安电
+root/jvbzd	海康威视Hikvision
+root klv123	海康威视Hikvision
+root/klv1234	海康威视Hikvision
+root/pass	安迅士Axis
+root/password	安迅士Axis
+root/realtek	瑞昱Realtek
+root/root	
+root/system	IQinVision
+root/user	
+root/vizxv	大华Dahua
+root/xc3511	H.254
+root/xmhdipc	安冉（雄迈模块）
+root/zlxx.	EV ELX Speaker？
+root/Zte521	中兴ZTE
+service/service	
+supervisor/supervisor	VideoIQ
+support/support	
+tech/tech	
+ubnt/ubnt	优倍快Ubiquiti
+user/user

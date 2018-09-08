@@ -1,0 +1,132 @@
+html, body {
+  margin: 0 0; }
+
+.content button {
+  background: #1abc9c;
+  margin: 0 10px;
+  position: relative;
+  top: -2px;
+  color: white;
+  border: none;
+  min-width: 50px;
+  font-size: 12px;
+  height: 30px;
+  border-radius: 5px; }
+
+button:active {
+  opacity: 0.8; }
+
+button:focus {
+  border: none;
+  outline: none; }
+
+#butlist > button {
+  display: inline-block;
+  margin: 10px;
+  padding: 0 10px;
+  white-space: nowrap; }
+
+.lighttext {
+  font-weight: 300; }
+
+#whatpin {
+  height: 30px;
+  width: 100px; }
+
+.keysview {
+  margin-left: 20%; }
+
+#enterface_container, #background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 400; }
+
+#background {
+  z-index: 300;
+  display: none;
+  background: black;
+  opacity: 0.5; }
+
+#daochuContent {
+  wdith: 100%;
+  height: 100%; }
+
+.enterface {
+  width: 80%;
+  display: block;
+  min-width: 1070px;
+  height: 90%;
+  min-height: 500px;
+  background: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 2px 12px gray;
+  overflow: hidden;
+  -webkit-font-smoothing: none;
+  font-family: "microsoft yahei"; }
+  .enterface h3 {
+    font-size: 20px; }
+  .enterface .windowtop {
+    width: 100%;
+    min-height: 30px;
+    /*  border: 1px solid black; */
+    background: lightgray;
+    cursor: move; }
+    .enterface .windowtop .topmessage {
+      float: left;
+      width: 40%;
+      margin-left: 20px;
+      line-height: 30px;
+      font-size: large;
+      font-weight: 200; }
+    .enterface .windowtop .btmessage {
+      float: right;
+      margin-right: 30px;
+      line-height: 30px;
+      font-size: small;
+      font-weight: 200; }
+  .enterface .content {
+    width: 100%;
+    height: calc(100% - 30px);
+    border: none;
+    overflow: scroll; }
+
+[class^="controlbutton"] {
+  position: relative;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 2px 0;
+  margin: auto auto;
+  min-width: 30px;
+  height: 24px;
+  background: #eee;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  animation: background-color .75s; }
+
+.controlbutton_add:hover {
+  background-color: #e9feb9; }
+.controlbutton_yes, .controlbutton_see {
+  cursor: pointer; }
+  .controlbutton_yes:hover, .controlbutton_see:hover {
+    background-color: #e9feb9; }
+.controlbutton_no {
+  cursor: no-drop;
+  background: none; }
+
+.item .select2-choice {
+  padding: 0; }
+
+.item .select2-arrow {
+  top: 38%;
+  border-top-color: #3fc0a7;
+  border-bottom-color: #3fc0a7;
+  right: auto; }
+
+/*# sourceMappingURL=control_page.css.map */

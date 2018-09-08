@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>control page</title>
+		<link rel="stylesheet" type="text/css" href="css/control_page.css"/>
+		<link rel="stylesheet" type="text/css" href="css/component.css"/>
+	</head>
+	<body>
+		<button onclick="showone(0)">show0</button>
+		<button onclick="showone(1)">show1</button>
+		<button >show1</button>
+		<div id="background"></div>
+		<div id="enterface_container">
+			<div id="models">
+				<div class="enterface">
+					<div class ="windowtop">
+						<span class="topmessage">我是你吗</span>
+						<span class="btmessage">关闭</span>
+						<div class="closebutton" title="关闭"></div>
+					</div>
+					<div class="content Ycenter"></div>
+				</div>
+				<div class="charts" id="painting">
+					<h3 title="IP 失败与成功比">IP: Failure vs Success</h3><hr />
+					<div class="scan_pie" style="width:600px;height:400px ;margin: 50px 100px;"> </div>
+					<h3 title="IP世界分布图">IP Map of World</h3><hr />
+						<div class="btlist">
+							<div class="spanbt-s" title="选择危险的"></div>
+							<div class="spanbt-f" title="选择暂时安全的"></div>
+							<div class="spanbt-a" title="所有已经扫描的"></div>
+						</div>
+					
+					<div class="scan_map" style="width:100%;height: 550px; margin: 20px 0;"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/vendor/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/control_page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="map/js/bigworld.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/component.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/charts.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var message={
+			startip:"180.32.23.23",
+		}
+		$("#enterface_container").hide();
+		var EnterFace=[];
+		function showone(par){
+			if(EnterFace[par] !==undefined){
+				EnterFace[par].Arg.show();
+			}else{
+				var Arg = initEnterFace( $("#enterface_container"),$("#models").find(".enterface")[0]);
+				Arg.show();
+				var ChartArg = startdraw(par,message,Arg.$content);
+				EnterFace[par]={
+					Arg,
+					ChartArg,
+				};
+			}
+		}
+	</script>
+</html>

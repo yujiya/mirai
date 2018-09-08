@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACI,UAAK;EACD,KAAK,EAAE,GAAG",
+"sources": ["../sass/forall.scss"],
+"names": [],
+"file": "forall.css"
+}

@@ -1,0 +1,275 @@
+@charset "UTF-8";
+.XYcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.Ycenter {
+  display: flex;
+  /*text-align: center;*/
+  align-items: center;
+  flex-direction: column; }
+
+.Xcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; }
+
+#models {
+  display: none;
+  visibility: hidden;
+  opacity: 0; }
+  
+.mybutton{
+	background: #1abc9c;
+  margin: 0 10px;
+  position: relative;
+  top: -2px;
+  color: white;
+  border: none;
+  min-width: 50px;
+  font-size: 12px;
+  height: 30px;
+  border-radius: 5px; }
+  
+.error_message {
+  color: red;
+  background: white; }
+
+.normal_message {
+  background: white; }
+
+.success_message {
+  color: green;
+  background: white; }
+
+#foot_message {
+  position: fixed;
+  z-index: 1000;
+  bottom: 20px;
+  right: 100px;
+  visibility: hidden;
+  /*display: none;*/
+  width: 500px;
+  height: 70px;
+  opacity: 0;
+  transform: scale(0.95) translate(4px, 8px);
+  font-size: 20px;
+  transition: opacity .3s linear,transform .3s linear;
+  border: none;
+  background: #eee;
+  box-shadow: 2px 2px 12px gray; }
+  #foot_message.success_message {
+    color: #27AE60;
+    background: white; }
+    #foot_message.success_message .micon {
+      color: white;
+      background: #27AE60; }
+      #foot_message.success_message .micon:before {
+        content: "";
+        font-family: "Glyphicons Halflings"; }
+  #foot_message.error_message {
+    color: #E74C3C;
+    background: white; }
+    #foot_message.error_message .micon {
+      color: white;
+      background: #E74C3C;
+      font-weight: bold; }
+      #foot_message.error_message .micon:before {
+        content: "!";
+        font-family: "microsoft yahei"; }
+  #foot_message.normal_message {
+    background: white; }
+    #foot_message.normal_message .micon {
+      color: white;
+      background: #1ABC9C; }
+      #foot_message.normal_message .micon:before {
+        content: "";
+        font-family: "Glyphicons Halflings"; }
+  #foot_message > * {
+    text-align: center;
+    display: inline-block;
+    position: absolute; }
+  #foot_message .micon {
+    font-size: 46.66667px;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    font-family: courier; }
+  #foot_message #foot_content {
+    height: 70px;
+    width: 430px;
+    left: 70px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row; }
+  #foot_message #lostbar {
+    position: absolute;
+    top: 70px;
+    height: 2px;
+    background-color: gray;
+    width: 100%;
+    opacity: 1;
+    transition: all 2.3s; }
+
+.closebutton {
+  box-sizing: border-box;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  float: right;
+  background: lightgray;
+  transition: background-color 0.75s;
+  border-radius: 50%;
+  border: 1px solid darkgray;
+  cursor: pointer; }
+  .closebutton.oneline, .closebutton::before, .closebutton::after {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    display: block;
+    width: 2px;
+    height: 12px;
+    content: "";
+    background: white;
+    opacity: 0;
+    transition: all .5s; }
+  .closebutton::before {
+    transform: translate(7px, 0) rotate(-45deg); }
+  .closebutton::after {
+    transform: translate(10px, -1px) rotate(45deg); }
+  .closebutton:hover {
+    background: red; }
+    .closebutton:hover::before {
+      opacity: 1;
+      transform: translate(8px, 3px) rotate(-45deg); }
+    .closebutton:hover::after {
+      opacity: 1;
+      transform: translate(8px, 3px) rotate(45deg); }
+
+.little_dropbox_shower {
+  width: 100%;
+  max-width: 400px;
+  max-height: 300px;
+  overflow: hidden;
+  white-space: nowrap; }
+  .little_dropbox_shower table {
+    width: 100%;
+    background: white; }
+    .little_dropbox_shower table tr:hover {
+      background: #eee; }
+    .little_dropbox_shower table tr {
+      border-bottom: 1px solid black; }
+    .little_dropbox_shower table td, .little_dropbox_shower table th {
+      text-align: left;
+      padding: 10px; }
+
+.little-bt {
+  display: table-cell;
+  vertical-align: center;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+  border: 1px solid gray;
+  padding: 0px; }
+  .little-bt:hover {
+    border: 1px solid #16a085;
+    color: #16a085; }
+
+.wrapper {
+  height: 0;
+  position: relative; }
+  .wrapper .btlist {
+    position: absolute; }
+
+.btlist > div {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 80px;
+  font-size: 15px;
+  font-weight: 200; }
+  .btlist > div::before {
+    display: inline-block;
+    position: relative;
+    top: 20px;
+    width: 80px;
+    height: auto;
+    z-index: 1; }
+  .btlist > div.spanbt-s {
+    background: #ff5a43; }
+    .btlist > div.spanbt-s::before {
+      content: "危险"; }
+  .btlist > div.spanbt-f {
+    background: #50c72b; }
+    .btlist > div.spanbt-f::before {
+      content: "暂时安全"; }
+  .btlist > div.spanbt-a {
+    background: #ffd700; }
+    .btlist > div.spanbt-a::before {
+      content: "已经扫描"; }
+
+.item-table {
+  border-radius: 5px;
+  width: 400px;
+  font-size: 15px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  box-shadow: 1px 1px 8px -1px #eee; }
+  .item-table table {
+    width: 100%;
+    border-collapse: collapse; }
+  .item-table thead th {
+    font-weight: 500;
+    background: #eee;
+    border-right: 1px solid #e0e0e0;
+    color: black; }
+  .item-table tbody td {
+    color: rgba(0, 0, 0, 0.7); }
+  .item-table th, .item-table td {
+    padding: 0 10px;
+    height: 40px;
+    vertical-align: center;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee; }
+  .item-table link {
+    color: #ecf6fd; }
+  .item-table tbody tr:hover {
+    background: #ecf6fd; }
+
+.search input {
+  padding: 0 10px;
+  border: 1px solid gray;
+  border-radius: 5px; }
+  .search input:focus {
+    outline: none;
+    border: 1px solid #48c8e3; }
+
+.supersearch {
+  width: 8em;
+  height: 30px; }
+
+.placeholder {
+  color: #EEEEEE;
+  margin: 20px; }
+
+.mydivider {
+  width: 3px;
+  height: 27px;
+  margin: 13px 3px;
+  overflow: hidden;
+  border-radius: 1.5px;
+  background-color: rgba(202, 206, 209, 0.5); }
+
+/*# sourceMappingURL=component.css.map */

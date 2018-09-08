@@ -1,0 +1,80 @@
+html{ font:12px/1.5 "Microsoft YaHei",arial, verdana, sans-serif}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+li{list-style:none}
+fieldset,img{border:0}
+table{border-collapse:collapse;border-spacing:0}
+q:before,q:after{content:”}
+button,input,select,textarea{font-size:100%}
+legend{color:#000}
+small{font-size:12px}
+hr{border:none;height:1px}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+.cle:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.cle{ display:inline-block}
+.cle{ display:block}
+.clear {clear: both;}
+
+body{
+	font-family: "Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif!important;
+}
+.navbar{
+	margin-bottom: 0!important;
+}
+.mainbody{
+	position: absolute;
+	z-index: -1;
+	top: 138px;
+	width: 100%;
+	bottom: 0;
+}
+.mainbody > section{
+	visibility: hidden;
+	opacity: 0;
+	display: none;
+	height: 95.7%;
+	width: 100%;
+}
+.footer{
+	width:100%;
+	/*left: 0;*/
+	position:fixed;
+	bottom:0;
+	background-color: #34495e;
+	text-align: center;
+	color: white;
+	font-size: 11px;
+}
+.mainbody > section.active{
+	visibility: visible;
+	opacity: 1;
+	display: block;
+}
+.navbar-left{
+	height: 100%;
+	width: 184px;
+	background-color: #f3f4f5;
+	color: #16a085;
+	padding: 10px;
+}
+.navbar-left li{
+	margin: 12px 0;
+
+}
+#test{
+	width: 180px;
+	display: block;
+	margin: 0 auto;
+}
+.body-right{
+	height: 100%;
+	position:absolute;
+	left: 180px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 5px;
+}
+.navbar-label{
+	margin-top: 20px;
+}

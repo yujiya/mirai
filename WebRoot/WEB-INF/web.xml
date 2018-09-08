@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<servlet>
+		<servlet-name>GetScanResultServlet</servlet-name>
+		<servlet-class>Scan.GetScanResultServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>StartScanServlet</servlet-name>
+		<servlet-class>Scan.StartScanServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetHistoryServlet</servlet-name>
+		<servlet-class>Scan.GetHistoryServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>StartScanServlet</servlet-name>
+		<url-pattern>/StartScanServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetScanResultServlet</servlet-name>
+		<url-pattern>/GetScanResultServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetHistoryServlet</servlet-name>
+		<url-pattern>/GetHistoryServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UpdateMirai</servlet-name>
+		<url-pattern>/UpdateMirai</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateMirai</servlet-name>
+		<servlet-class>Scan.UpdateMirai</servlet-class>
+	</servlet>
+	
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
